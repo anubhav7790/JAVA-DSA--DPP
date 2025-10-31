@@ -7,6 +7,6 @@ class Solution {
             }
             if (cnt == 1) return nums[i];
         }
-        return -1; // should never happen given problem constraints
+        return -1;
     }
 }
