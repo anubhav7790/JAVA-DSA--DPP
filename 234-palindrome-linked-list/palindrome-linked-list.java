@@ -10,15 +10,47 @@
  */
 class Solution {
     public boolean isPalindrome(ListNode head) {
-        StringBuilder sb = new StringBuilder() ;
-        ListNode curr = head ;
-        while(curr != null){
-            sb.append(curr.val);
-            curr = curr.next ; 
-        }
-        String original = sb.toString(); 
-        String reverse = new StringBuilder(original).reverse().toString(); 
-       
-        return original.equals(reverse) ; 
+        if(head == null || head.next == null) return true ; 
+        ListNode slow = head ;
+        ListNode fast = head ;
+         while(fast != null && fast.next != null){
+        slow = slow.next ;
+        fast = fast.next.next ;
+
     }
+
+
+       
+        ListNode midnode = slow ; 
+        ListNode prev = null ;
+        ListNode curr = midnode ;
+        ListNode next ; 
+
+        while(curr!= null){
+            next = curr.next ;
+            curr.next = prev ; 
+            prev = curr ;
+            curr = next ; 
+        
+        }
+
+        ListNode right = prev ;
+        ListNode left = head ; 
+
+        while(right != null){
+            if(left.val != right.val){
+                return false ;
+            }
+            left = left.next ;
+            right  =  right.next ; 
+        }
+
+        return true ; 
+    }
+
+
+
+  
+    
+    
 }
