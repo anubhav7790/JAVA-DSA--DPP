@@ -12,7 +12,7 @@ class Solution {
     public ListNode removeNodes(ListNode head) {
       head =   reverse(head); 
         ListNode temp = head ;
-        ListNode curr ;
+       
         int max = head.val ; 
         while(temp != null && temp.next != null){
              
