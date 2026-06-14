@@ -1,25 +1,15 @@
 class Solution {
-    HashMap<Integer , Integer> map = new HashMap<>(); 
     public int climbStairs(int n) {
-        n= n+1 ; 
-        int x = find(n) ; 
-        return x ; 
-    }
- public  int find(int n) {
-        if(n==0) return  0 ;
         if(n==1) return 1 ; 
 
-        if (map.containsKey(n)) {
-            return map.get(n);
+        int dp[] = new int[n+1] ;
+        dp[1] = 1 ;
+        dp[2] = 2  ;
+
+        for(int i = 3 ; i<=n ; i++){
+            dp[i] = dp[i-1] + dp[i-2] ;
         }
 
-        // Otherwise compute and store in HashMap
-        int value = find(n - 1) + find(n - 2);
-        map.put(n, value);
-
-        return value;
-
-
- }
-
+        return dp[n] ; 
+    }
 }
